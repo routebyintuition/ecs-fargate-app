@@ -12,14 +12,14 @@ Parameters:
     Type: String
     Default: 10.50.1.0/24
   PublicSubnet2CIDR:
-      Description: IP Range of second public AZ within new VPC in CIDR format
-      Type: String
-      Default: 10.50.2.0/24
+    Description: IP Range of second public AZ within new VPC in CIDR format
+    Type: String
+    Default: 10.50.2.0/24
 Resources:
   Cluster:
     Type: "AWS::ECS::Cluster"
     Properties:
-      ClusterName: ecs-sample
+      ClusterName: webapp
   Service: 
     Type: AWS::ECS::Service
     Properties: 
@@ -127,7 +127,7 @@ Resources:
     Properties:
       VpcId: !Ref VPC
       AvailabilityZone: !Select [ 1, !GetAZs '' ]
-      CidrBlock: !Ref PublicSubnet1CIDR
+      CidrBlock: !Ref PublicSubnet2CIDR
       MapPublicIpOnLaunch: true
   PublicRouteTable:
     Type: AWS::EC2::RouteTable
