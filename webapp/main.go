@@ -72,7 +72,7 @@ func main() {
 
 	//copy(sc.Website, art)
 	sc.Website = art
-	fmt.Println("Art: ", string(art))
+	fmt.Println("\n", string(art))
 
 	http.HandleFunc("/", sc.homeHandler)
 
