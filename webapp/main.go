@@ -70,7 +70,9 @@ func main() {
 		Error.Println("Could not open art.txt: ", err)
 	}
 
-	copy(sc.Website, art)
+	//copy(sc.Website, art)
+	sc.Website = art
+	fmt.Println("Art: ", string(art))
 
 	http.HandleFunc("/", sc.homeHandler)
 
