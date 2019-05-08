@@ -1,24 +1,20 @@
 Parameters:
-  S3AssetsBucket:
-    Description: Artifacts Bucket
-    Type: String
-    Default: ee-assets-prod-us-east-1
   DockerImage:
-    Default: 639143756695.dkr.ecr.us-east-1.amazonaws.com/ws-loadgen-root:latest
+    Default: <AWS Account ID>.dkr.ecr.<AWS REGION>.amazonaws.com/<ECR REPO>:<VERSION>
     Description: Location of docker image to deploy
     Type: String
   VpcCIDR: 
     Description: IP Range for VPC in CIDR notation
-      Type: String
-      Default: 10.192.0.0/16
+    Type: String
+    Default: 10.50.0.0/16
   PublicSubnet1CIDR:
-      Description: IP Range of first public AZ within new VPC in CIDR format
-      Type: String
-      Default: 10.192.10.0/24
+    Description: IP Range of first public AZ within new VPC in CIDR format
+    Type: String
+    Default: 10.50.1.0/24
   PublicSubnet2CIDR:
       Description: IP Range of second public AZ within new VPC in CIDR format
       Type: String
-      Default: 10.192.11.0/24
+      Default: 10.50.2.0/24
 Resources:
   Cluster:
     Type: "AWS::ECS::Cluster"
