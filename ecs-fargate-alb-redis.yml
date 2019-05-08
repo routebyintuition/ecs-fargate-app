@@ -54,6 +54,8 @@ Resources:
         - Name: webapp
           Essential: true
           Image: !Ref DockerImage
+          PortMappings:
+            - ContainerPort: 80          
           EntryPoint: 
             - /webapp
           Environment:

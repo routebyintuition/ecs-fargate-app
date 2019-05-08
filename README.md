@@ -19,7 +19,7 @@ There is a web application included which provides a demo site for you to test y
     #> ecs-fargate-app/webapp
     #> go build
     #> docker build -t webapp .
-    ># docker push <DESTINATION>
+    #> docker push <DESTINATION>
 
 You will now want to follow the instructions for your docker repository of choice. You will need the image location during cloudformation initiation.
 
