@@ -66,13 +66,11 @@ func main() {
 	}
 
 	art, err := ioutil.ReadFile("art.txt")
-
 	if err != nil {
-		Error.Println("Could not open art.txt")
+		Error.Println("Could not open art.txt: ", err)
 	}
 
 	copy(sc.Website, art)
-	fmt.Println("Art: ", art)
 
 	http.HandleFunc("/", sc.homeHandler)
 

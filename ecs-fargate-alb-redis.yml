@@ -24,9 +24,13 @@ Resources:
     Type: AWS::ECS::Service
     Properties: 
       Cluster: !Ref Cluster
-      ServiceName: loadgen-root
+      ServiceName: webapp
       LaunchType: FARGATE
-      DesiredCount: 0
+      DesiredCount: 1
+      LoadBalancers:
+      - TargetGroupArn: !Ref TargetGroupPublic
+        ContainerPort: 80
+        ContainerName: webapp      
       TaskDefinition: !Ref TaskDefinition
       NetworkConfiguration: 
         AwsvpcConfiguration:
@@ -215,7 +219,7 @@ Resources:
     Properties:
       GroupDescription: Web Instance Security Group
       SecurityGroupIngress:
-      - CidrIp: 10.194.0.0/16
+      - CidrIp: !Ref VpcCIDR
         FromPort: '6379'
         IpProtocol: tcp
         ToPort: '6379'    
