@@ -25,6 +25,13 @@ func (sc *serviceConfig) homeHandler(w http.ResponseWriter, r *http.Request) {
 	outputText := append(sc.Website[:], countString[:]...)
 
 	fmt.Fprintf(w, string(outputText))
+
+	content, err := ioutil.ReadFile("art.txt")
+	if err != nil {
+		fmt.Println("Cound not read art.txt")
+		return
+	}
+	fmt.Fprintf(w, string(content))
 }
 
 func (sc *serviceConfig) incrementCounter() int {
