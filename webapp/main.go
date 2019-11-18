@@ -25,13 +25,6 @@ func (sc *serviceConfig) homeHandler(w http.ResponseWriter, r *http.Request) {
 	outputText := append(sc.Website[:], countString[:]...)
 
 	fmt.Fprintf(w, string(outputText))
-
-	content, err := ioutil.ReadFile("art.txt")
-	if err != nil {
-		fmt.Println("Cound not read art.txt")
-		return
-	}
-	fmt.Fprintf(w, string(content))
 }
 
 func (sc *serviceConfig) incrementCounter() int {
@@ -70,7 +63,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	art, err := ioutil.ReadFile("art.txt")
+	art, err := ioutil.ReadFile("/art.txt")
 	if err != nil {
 		Error.Println("Could not open art.txt: ", err)
 	}
