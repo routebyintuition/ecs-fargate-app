@@ -7,9 +7,14 @@ import (
 )
 
 var (
-	Info    *log.Logger
+	// Info is the info log level for the app
+	Info *log.Logger
+
+	// Warning is the warn log level for the app
 	Warning *log.Logger
-	Error   *log.Logger
+
+	// Error is the error log level for the app
+	Error *log.Logger
 )
 
 // Simple logging method
